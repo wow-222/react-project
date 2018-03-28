@@ -1,0 +1,47 @@
+gygd2&:9>x3M
+
+bsinbsbn123
+
+var info=[
+	{
+	  "name":"最近想跳河",
+	  "interst":["历史","美食"],
+	  "wife":{
+		"name":"a.wen",
+		"interst":["旅游","美食","教育人"]
+	  }
+	}
+];
+
+        Var schedule = [
+            {
+                "date":"",                 // 议程日期
+                "list":[
+                    {
+                        "o_time":"",       // 时间
+                        "content":"",      // 内容
+                        "personnel":""     // 人员
+                    },
+		    {
+                        "o_time":"",       // 时间
+                        "content":"",      // 内容
+                        "personnel":""     // 人员
+                    }
+                ]
+            },
+	    {
+                "date":"",                 // 议程日期
+                "list":[
+                    {
+                        "o_time":"",       // 时间
+                        "content":"",      // 内容
+                        "personnel":""     // 人员
+                    },
+		    {
+                        "o_time":"",       // 时间
+                        "content":"",      // 内容
+                        "personnel":""     // 人员
+                    }
+                ]
+            }
+        ]
