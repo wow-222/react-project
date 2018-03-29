@@ -1,15 +1,16 @@
 import React, {Component} from 'react';
 import '@/assets/css/logo.css';
 import { List, InputItem, WhiteSpace ,WingBlank, Button, Radio} from 'antd-mobile';
-import {regisger} from '@/actionTypes/actions'
+import {registered} from '@/actionTypes/actions'
 import {connect} from 'react-redux'
-//从store里获取state.user并把它赋给当前类的props  this.props.state
+import {Redirect} from "react-router-dom"
+//从store里获取state并把它赋给当前类的props  this.props.state
 const mapStateToProps = (state) => {
     return {state:state}
 }
 @connect(
     mapStateToProps,
-    {regisger}
+    {registered}
 )
 
 class Register extends Component{
@@ -27,16 +28,14 @@ class Register extends Component{
       [key]: val
     })
   }
-  componentDidMount(){
-
-  }
   handleRegister = () => {
-      this.props.regisger(this.state)
+      this.props.registered(this.state)
   }
   render(){
     const RadioItem = Radio.RadioItem;
     return (
       <div className='logo-container'>
+          {this.props.state.redirectTo ? <Redirect to={this.props.state.redirectTo} /> : null}
         <img src={require('@/assets/images/job.png')} alt=""/>
           {this.props.state.msg?<p className='error-msg'>{this.props.state.msg}</p>:null}
         <WingBlank>

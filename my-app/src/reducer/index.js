@@ -12,6 +12,18 @@ export default function userReducer(state=initState,action) {
             return Object.assign({}, state, {
                 msg: '',
                 isAuth: true,
+                redirectTo: getRedirectPath(action.payload),
+                ...action.payload
+            })
+        case LOGIN_SUCESS:
+            return Object.assign({}, state, {
+                msg: '',
+                isAuth: true,
+                redirectTo: getRedirectPath(action.payload),
+                ...action.payload
+            })
+        case LOAD_DATA:
+            return Object.assign({}, state, {
                 ...action.payload
             })
         case ERROR_MSG:
@@ -22,4 +34,15 @@ export default function userReducer(state=initState,action) {
         default:
             return state
     }
+}
+
+function getRedirectPath({type, avatar}){
+    // 根据用户信息 返回跳转地址
+    // user.type /boss /genius
+    // user.avatar /bossinfo /geniusinfo
+    let url = (type==='boss')?'/boss': '/genius'
+    if (!avatar) {
+        url += 'info'
+    }
+    return url
 }

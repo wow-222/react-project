@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+//import App from './App';
 //axios拦截器配置
 import './config';
 //redux管理器
@@ -11,10 +11,11 @@ import userReducer from './reducer'
 import {Provider} from 'react-redux'
 //router
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import AuthRoute from '@/components/authroute';
 
-import Login from './components/login/login'
-import Register from './components/register/register'
-import registerServiceWorker from './registerServiceWorker';
+import Login from '@/components/login/login'
+import Register from '@/components/register/register'
+import registerServiceWorker from '@/registerServiceWorker';
 
 const store = createStore(
   userReducer,
@@ -35,6 +36,7 @@ ReactDOM.render(
           <Link to="/register">zhuce</Link>
         </li>
       </ul>
+      <AuthRoute />
       <Route path="/login" component={Login} />
       <Route path="/register" component={Register} />
     </div>
