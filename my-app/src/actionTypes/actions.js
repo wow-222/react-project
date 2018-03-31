@@ -6,6 +6,7 @@ import axios from "axios";
 
 export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
 export const LOGIN_SUCESS = 'LOGIN_SUCESS';
+export const UPDATE_SUCESS = 'UPDATE_SUCESS';
 export const ERROR_MSG = 'ERROR_MSG';
 export const LOAD_DATA = 'LOAD_DATA';
 
@@ -36,6 +37,10 @@ function registerSuccess(data){
 
 function  loginSuccess(data) {
     return {type:LOGIN_SUCESS, payload:data}
+}
+
+function updateSuccess(data) {
+    return {type:UPDATE_SUCESS, payload:data}
 }
 
 export function loadData(data) {
@@ -70,6 +75,19 @@ export function login({user,pwd}) {
             .then(res=>{
                 if (res.status === 200 && res.data.code === 0) {
                     dispatch(loginSuccess(res.data.data))
+                }else{
+                    dispatch(errorMsg(res.data.msg))
+                }
+            })
+    }
+}
+
+export function update(data) {
+    return dispatch=>{
+        axios.post('/user/update',data)
+            .then(res=>{
+                if (res.status === 200 && res.data.code === 0) {
+                    dispatch(updateSuccess(res.data.data))
                 }else{
                     dispatch(errorMsg(res.data.msg))
                 }

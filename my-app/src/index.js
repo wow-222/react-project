@@ -10,12 +10,15 @@ import { createStore, applyMiddleware ,compose} from 'redux'
 import userReducer from './reducer'
 import {Provider} from 'react-redux'
 //router
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import AuthRoute from '@/components/authroute';
+import { BrowserRouter as Router, Route,Switch} from "react-router-dom";
+import AuthRoute from '@/base/authroute';
+import Dashboard from '@/base/dashboard'
 
-import Login from '@/components/login/login'
 import Register from '@/components/register/register'
-import registerServiceWorker from '@/registerServiceWorker';
+import Bossinfo from '@/components/bossinfo/bossinfo'
+import Geniusinfo from '@/components/geniusinfo/geniusinfo'
+import Login from '@/components/login/login'
+import registerServiceWorker from '@/registerServiceWorker'
 
 const store = createStore(
   userReducer,
@@ -28,17 +31,14 @@ ReactDOM.render(
   <Provider store={store}>
   <Router>
     <div>
-      <ul>
-        <li>
-          <Link to="/login">login</Link>
-        </li>
-        <li>
-          <Link to="/register">zhuce</Link>
-        </li>
-      </ul>
       <AuthRoute />
-      <Route path="/login" component={Login} />
-      <Route path="/register" component={Register} />
+        <Switch>
+            <Route path="/bossinfo" component={Bossinfo} />
+            <Route path="/geniusinfo" component={Geniusinfo} />
+            <Route path="/login" component={Login} />
+            <Route path="/register" component={Register} />
+            <Route component={Dashboard}></Route>
+        </Switch>
     </div>
   </Router>
   </Provider>,

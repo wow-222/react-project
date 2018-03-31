@@ -1,6 +1,7 @@
 import {
     REGISTER_SUCCESS,
     LOGIN_SUCESS,
+    UPDATE_SUCESS,
     ERROR_MSG,
     LOAD_DATA,
     initState
@@ -19,6 +20,12 @@ export default function userReducer(state=initState,action) {
             return Object.assign({}, state, {
                 msg: '',
                 isAuth: true,
+                redirectTo: getRedirectPath(action.payload),
+                ...action.payload
+            })
+        case UPDATE_SUCESS:
+            return Object.assign({}, state, {
+                msg: '',
                 redirectTo: getRedirectPath(action.payload),
                 ...action.payload
             })
