@@ -1,7 +1,7 @@
 import {Component} from 'react'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom'
-import { loadData } from '@/actionTypes/actions'
+import { loadData } from '@/actionTypes/user_actions'
 import { connect } from 'react-redux'
 //withRouter 是用来包裹类可以获取props属性
 @withRouter

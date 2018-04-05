@@ -3,7 +3,7 @@ import '@/assets/css/logo.css';
 import { List, InputItem, WhiteSpace ,WingBlank, Button} from 'antd-mobile';
 import {connect} from 'react-redux'
 import {Redirect} from 'react-router-dom';
-import {login} from '@/actionTypes/actions';
+import {login} from '@/actionTypes/user_actions';
 
 const mapStateToProps = (state) => {
     return {state:state}

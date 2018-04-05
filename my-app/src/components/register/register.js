@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import '@/assets/css/logo.css';
 import { List, InputItem, WhiteSpace ,WingBlank, Button, Radio} from 'antd-mobile';
-import {registered} from '@/actionTypes/actions'
+import {registered} from '@/actionTypes/user_actions'
 import {connect} from 'react-redux'
 import {Redirect} from "react-router-dom"
 //从store里获取state并把它赋给当前类的props  this.props.state

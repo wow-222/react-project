@@ -5,7 +5,7 @@ import {
     ERROR_MSG,
     LOAD_DATA,
     initState
-} from '@/actionTypes/actions'
+} from '@/actionTypes/user_actions'
 
 export default function userReducer(state=initState,action) {
     switch (action.type){

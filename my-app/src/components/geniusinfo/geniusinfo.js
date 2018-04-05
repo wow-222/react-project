@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import AvatarSelector from '@/base/avatar'
 import {connect} from 'react-redux'
 import {Redirect} from 'react-router-dom'
-import {update} from '@/actionTypes/actions'
+import {update} from '@/actionTypes/user_actions'
 import {NavBar,InputItem, TextareaItem, Button,WhiteSpace} from 'antd-mobile'
 
 const mapStateToProps = (state) => {
