@@ -7,7 +7,7 @@ import './config';
 //redux管理器
 import thunkMiddleware from 'redux-thunk'
 import { createStore, applyMiddleware ,compose} from 'redux'
-import userReducer from './reducer'
+import reducer from './reducer'
 import {Provider} from 'react-redux'
 //router
 import { BrowserRouter as Router, Route,Switch} from "react-router-dom";
@@ -21,14 +21,14 @@ import Login from '@/components/login/login'
 import registerServiceWorker from '@/registerServiceWorker'
 
 const store = createStore(
-  userReducer,
+  reducer,
   compose(
     applyMiddleware(thunkMiddleware), // 允许我们 dispatch() 函数
     window.devToolsExtension ? window.devToolsExtension():f=>f
   )
 )
 ReactDOM.render(
-  <Provider store={store}>
+  (<Provider store={store}>
   <Router>
     <div>
       <AuthRoute />
@@ -41,7 +41,7 @@ ReactDOM.render(
         </Switch>
     </div>
   </Router>
-  </Provider>,
+  </Provider>),
   document.getElementById('root')
 )
 registerServiceWorker();

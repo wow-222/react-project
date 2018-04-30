@@ -6,7 +6,7 @@ import {update} from '@/actionTypes/user_actions'
 import {NavBar,InputItem, TextareaItem, Button,WhiteSpace} from 'antd-mobile'
 
 const mapStateToProps = (state) => {
-    return {state: state}
+    return {state: state.user}
 }
 @connect(
     mapStateToProps,

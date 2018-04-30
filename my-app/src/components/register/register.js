@@ -4,9 +4,9 @@ import { List, InputItem, WhiteSpace ,WingBlank, Button, Radio} from 'antd-mobil
 import {registered} from '@/actionTypes/user_actions'
 import {connect} from 'react-redux'
 import {Redirect} from "react-router-dom"
-//从store里获取state并把它赋给当前类的props  this.props.state
+//从store里获取state.user并把它赋给当前类的props  this.props.state
 const mapStateToProps = (state) => {
-    return {state:state}
+    return {state:state.user}
 }
 @connect(
     mapStateToProps,

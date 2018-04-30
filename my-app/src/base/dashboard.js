@@ -2,14 +2,14 @@ import React,{Component} from 'react'
 import NavLinkBar from '@/base/navlinkbar'
 import {NavBar} from 'antd-mobile'
 import {connect} from 'react-redux'
-import {Route,Switch} from 'react-router-dom'
+import {Route,Switch,Redirect} from 'react-router-dom'
 import Boss from '@/components/boss/boss'
 import Genius from '@/components/genius/genius'
 import Msg from '@/components/msg/msg'
-import User from '@/components/user/user'
+import UserCenter from '@/components/user/usercenter'
 
 const mapStateToProps = (state) => {
-    return {state: state}
+    return {state: state.user}
 }
 @connect(
     mapStateToProps
@@ -49,12 +49,13 @@ class Dashboard extends Component{
                 key: 'user',
                 icon:'user',
                 title:'个人中心',
-                component: User
+                component: UserCenter
             }
         ]
-        return(
+        const page = navList.find(v=>v.path === pathname);
+        return page ?(
             <div>
-                <NavBar>{navList.find(v=>v.path === pathname).title}</NavBar>
+                <NavBar className='fixd-header' mode='dard'>{navList.find(v=>v.path === pathname).title}</NavBar>
                 <div>
                     <Switch>
                         {navList.map(v=>(
@@ -64,7 +65,7 @@ class Dashboard extends Component{
                 </div>
                 <NavLinkBar data={navList}></NavLinkBar>
             </div>
-        )
+        ) : <Redirect to='/login' />
     }
 }
 export default Dashboard

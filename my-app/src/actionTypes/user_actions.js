@@ -6,6 +6,7 @@ import axios from "axios";
 
 export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
 export const LOGIN_SUCESS = 'LOGIN_SUCESS';
+export const LOGOUT = 'LOGOUT';
 export const UPDATE_SUCESS = 'UPDATE_SUCESS';
 export const ERROR_MSG = 'ERROR_MSG';
 export const LOAD_DATA = 'LOAD_DATA';
@@ -45,6 +46,10 @@ function updateSuccess(data) {
 
 export function loadData(data) {
     return {type: LOAD_DATA,payload:data}
+}
+
+export function logout() {
+    return {type: LOGOUT}
 }
 
 export function registered({user,pwd,repeatpwd,type}){
